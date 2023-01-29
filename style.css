@@ -12945,7 +12945,7 @@ blockquote.float-end {
 .owl-carousel .owl-dots .owl-dot {
 	width: var(--owl-dots-sizes);
 	height: var(--owl-dots-sizes);
-	background-color: var(--owl-nav-bg);
+	background-color: #1ABC9C;
 	margin-left: var(--owl-dots-gutters);
 	margin-right: var(--owl-dots-gutters);
 	transition: all .3s;
