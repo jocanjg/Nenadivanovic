@@ -3,8 +3,8 @@
 -----------------------------------------------------------------*/
 
 
-.bg-color2 { background-color: #131722 !important; }
-.color2 { background-color: #131722 !important; }
+.bg-color2 { background-color: black !important; }
+.color2 { background-color: black !important; }
 
 .music-gradient { background: -moz-linear-gradient(top,  rgba(19,23,34,0) 2%, rgba(19,23,34,0) 66%, rgba(19,23,34,1) 100%); background: -webkit-linear-gradient(top,  rgba(19,23,34,0) 2%,rgba(19,23,34,0) 66%,rgba(19,23,34,1) 100%); background: linear-gradient(to bottom,  rgba(19,23,34,0) 2%,rgba(19,23,34,0) 66%,rgba(19,23,34,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131722', endColorstr='#131722',GradientType=0 ); }
 

@@ -43,7 +43,107 @@
 	<style>
 		.css3-spinner { background-color: #131722; }
 	</style>
+	<style>
 
+		.floating-contact-wrap {
+			position: fixed;
+			right: 50px;
+			bottom: 90px;
+			z-index: 299;
+			-webkit-transition: right .2s ease;
+			-o-transition: right .2s ease;
+			transition: right .2s ease;
+		}
+	
+		.stretched .floating-contact-wrap + #gotoTop { bottom: 100px; }
+	
+		.floating-contact-wrap .floating-contact-btn {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 60px;
+			height: 60px;
+			border-radius: 60px;
+			background-color: #1ABC9C;
+			color: #FFF;
+			cursor: pointer;
+			z-index: 3;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			transition: transform .3s ease;
+		}
+	
+		.floating-contact-wrap .floating-contact-btn:hover,
+		.floating-contact-wrap.active .floating-contact-btn {
+			-webkit-transform: translate(-50%, -50%) scale(1.1);
+			transform: translate(-50%, -50%) scale(1.1);
+			background-color: #222;
+		}
+	
+		.floating-contact-wrap .floating-contact-btn .floating-contact-icon {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			font-size: 22px;
+			-webkit-transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+			transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+			-webkit-transition-property: opacity, -webkit-transform;
+			transition-property: opacity, transform;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			-webkit-backface-visibility: hidden;
+		}
+	
+		.floating-contact-wrap .floating-contact-btn .floating-contact-icon.btn-active,
+		.floating-contact-wrap.active .floating-contact-btn .floating-contact-icon {
+			opacity: 0;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+	
+		.floating-contact-wrap.active .floating-contact-btn .floating-contact-icon.btn-active {
+			opacity: 1;
+			-webkit-transform: translate(-50%, -50%) rotate(-45deg);
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	
+		.floating-contact-wrap .floating-contact-box {
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 380px;
+			background-color: #fff;
+			border-radius: 6px;
+			z-index: 1;
+			-webkit-transform-origin: right bottom;
+			transform-origin: right bottom;
+			box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.07);
+			-webkit-transform: scale(.01);
+			transform: scale(.01);
+			 -webkit-transition: all .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+			transition: all .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+			-webkit-backface-visibility: hidden;
+		}
+	
+		.floating-contact-wrap.active .floating-contact-box {
+			opacity: 1;
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+	
+		@media (max-width: 767.98px) { .floating-contact-wrap .floating-contact-box { width: 340px; } }
+	
+		.css3-spinner { background-color: rgba(255, 255, 255, 0.8) }
+	
+		#floating-contact-submitted,
+		.floating-contact-success #floating-contact,
+		.floating-contact-success .floating-contact-heading,
+		body:not(.floating-contact-processing) .floating-contact-loader { display: none; }
+	
+		.floating-contact-success #floating-contact-submitted { display: block; }
+	
+		</style>
 </head>
 
 <body class="stretched bg-color2" data-loader="4" data-loader-color="theme">
@@ -90,7 +190,7 @@
 						<nav class="primary-menu not-dark">
 
 							<ul class="menu-container">
-								<li class="menu-item active"><a class="menu-link" href="index.html"><div>Home</div></a></li>
+								<!-- <li class="menu-item active"><a class="menu-link" href="index.html"><div>Home</div></a></li> -->
 								<!-- <li class="menu-item"><a class="menu-link" href="#"><div>Musics</div></a>
 									<ul class="sub-menu-container">
 										<li class="menu-item"><a class="menu-link" href="#"><div>Featured</div></a></li>
@@ -108,10 +208,11 @@
 										<li class="menu-item"><a class="menu-link" href="#"><div>Popular Artists</div></a></li>
 									</ul>
 								</li> -->
-						
+								<li class="menu-item"><a class="menu-link" href="gallery.html"><div>Gallery</div></a></li>
 							   <li class="menu-item"><a class="menu-link" href="concerts.html"><div>Concerts</div></a></li>
 								<li class="menu-item"><a class="menu-link" href="media.html"><div>Media</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="mailto: n_ivanovic@live.com"><div><i class="icon-line-mail"></i>n_ivanovic@live.com</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="contact.html"><div>Contact</div></a></li>
+								
 								<li class="menu-item"><a class="menu-link" href="index-de.html"><div ><img src="ger.png" style="width:25px; height:25px;"></div></a></li>
 							</ul>
 
@@ -170,7 +271,7 @@
 						<!-- Carousel Items
 						============================================= -->
 						<div class="oc-item" data-animate="fadeInDown">
-							<img src="termini.jpg" alt="Image 1">
+							<img src="test1.jpg" alt="Image 1">
 							<div class="bg-overlay">
 								<div class="bg-overlay-content text-overlay-mask dark desc-sm align-items-center justify-content-between">
 									<div class="portfolio-desc py-0">
@@ -185,7 +286,7 @@
 						</div>
 						<div class="oc-item" data-animate="fadeInDown" data-delay="100">
 							
-							<img src="termini.jpg" alt="Image 1">
+							<img src="test4.jpg" alt="Image 1">
 							<div class="bg-overlay">
 								<div class="bg-overlay-content text-overlay-mask dark desc-sm align-items-center justify-content-between">
 									<div class="portfolio-desc py-0">
@@ -199,7 +300,7 @@
 							</div>
 						</div>
 						<div class="oc-item" data-animate="fadeInDown" data-delay="120">
-							<img src="termini.jpg" alt="Image 1">
+							<img src="test4.jpg" alt="Image 1">
 							<div class="bg-overlay">
 								<div class="bg-overlay-content text-overlay-mask dark desc-sm align-items-center justify-content-between">
 									<div class="portfolio-desc py-0">
@@ -213,7 +314,7 @@
 							</div>
 						</div>
 						<div class="oc-item" data-animate="fadeInDown" data-delay="140">
-							<img src="termini.jpg" alt="Image 1">
+							<img src="test4.jpg" alt="Image 1">
 							<div class="bg-overlay">
 								<div class="bg-overlay-content text-overlay-mask dark desc-sm align-items-center justify-content-between">
 									<div class="portfolio-desc py-0">
@@ -227,7 +328,7 @@
 							</div>
 						</div>
 						<div class="oc-item" data-animate="fadeInDown" data-delay="160">
-							<img src="termini.jpg" alt="Image 1">
+							<img src="test4.jpg" alt="Image 1">
 							<div class="bg-overlay">
 								<div class="bg-overlay-content text-overlay-mask dark desc-sm align-items-center justify-content-between">
 									<div class="portfolio-desc py-0">
@@ -241,7 +342,7 @@
 							</div>
 						</div>
 						<div class="oc-item" data-animate="fadeInDown" data-delay="180">
-							<img src="termini.jpg" alt="Image 1">
+							<img src="test4.jpg" alt="Image 1">
 							<div class="bg-overlay">
 								<div class="bg-overlay-content text-overlay-mask dark desc-sm align-items-center justify-content-between">
 									<div class="portfolio-desc py-0">
@@ -346,6 +447,8 @@
 
 				</div>
 			</div>
+
+			
 		</section><!-- #content end -->
 
 		<!-- Footer
@@ -372,7 +475,58 @@
 			</div><!-- #copyrights end -->
 		</footer><!-- #footer end -->
 
+
+	
+
 	</div><!-- #wrapper end -->
+
+
+	<div class="floating-contact-wrap">
+		<div class="floating-contact-btn shadow">
+			<i class="floating-contact-icon btn-unactive icon-envelope21"></i>
+			<i class="floating-contact-icon btn-active icon-line-plus"></i>
+		</div>
+		<div class="floating-contact-box">
+			<div id="q-contact" class="widget quick-contact-widget clearfix">
+				<!-- <div class="floating-contact-heading bg-color dark p-4 rounded">
+					<h3 class="mb-0 text-white">Quick Contact 👋</h3>
+					<p class="mb-0">Get in Touch with Us</p>
+				</div> -->
+				<div class="form-widget" data-alert-type="false">
+					<div class="form-result"></div>
+					<div class="floating-contact-loader css3-spinner" style="position: absolute;">
+						<div class="css3-spinner-bounce1"></div>
+						<div class="css3-spinner-bounce2"></div>
+						<div class="css3-spinner-bounce3"></div>
+					</div>
+					<div id="floating-contact-submitted" class="p-4 center">
+						<i class="icon-line-mail h1 color"></i>
+						<h4 class="fw-normal mb-0 font-body">Thank You for Contact Us! Our Team will contact you asap on your email Address.</h4>
+					</div>
+					<form class="p-4 mb-0" id="floating-contact" action="include/form.php" method="post" enctype="multipart/form-data">
+						<div class="input-group mb-3">
+							<span class="input-group-text bg-transparent"><i class="icon-user-alt"></i></span>
+							<input type="text" name="floating-contact-name" id="floating-contact-name" class="form-control required" value="" placeholder="Enter your Full Name">
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text bg-transparent"><i class="icon-at"></i></span>
+							<input type="email" name="floating-contact-email" id="floating-contact-email" class="form-control required" value="" placeholder="Enter your Email Address">
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text bg-transparent"><i class="icon-comment21"></i></span>
+							<textarea name="floating-contact-message" id="floating-contact-message" class="form-control required" cols="30" rows="4"></textarea>
+						</div>
+						<input type="hidden" id="floating-contact-botcheck" name="floating-contact-botcheck" value="" />
+						<button type="submit" name="floating-contact-submit" class="btn btn-dark w-100 btn-lg">Send Message</button>
+						<input type="hidden" name="prefix" value="floating-contact-">
+						<input type="hidden" name="subject" value="Messgae From Floating Contact">
+						<input type="hidden" name="html_title" value="Floating Contact Message">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- Audio Player
 	============================================= -->
@@ -382,11 +536,11 @@
 
 	<!-- Default Track - onLoad
 	============================================= -->
-	<div id="track-onload" data-track="J.P.Rameau-Les-triolets.mp3" data-poster="termini.jpg" data-title="Les-triolets" data-singer="J.P.Rameau"></div>
+	<div id="track-onload" data-track="J.P.Rameau-Les-triolets.mp3" data-poster="test4.jpg" data-title="Les-triolets" data-singer="J.P.Rameau"></div>
 
 	<!-- Go To Top
 	============================================= -->
-	<div id="gotoTop" class="icon-angle-up" style="bottom: 70px;"></div>
+	<div id="gotoTop" class="icon-angle-up" style="bottom: 170px;"></div>
 
 	<!-- JavaScripts
 	============================================= -->
@@ -400,6 +554,14 @@
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="js/functions.js"></script>
+	<script>
+		jQuery(document).ready( function($){
+			var elementParent = $('.floating-contact-wrap');
+			$('.floating-contact-btn').off( 'click' ).on( 'click', function() {
+				elementParent.toggleClass('active', );
+			});
+		});
+	</script>
 
 	<script>
 
